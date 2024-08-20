@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+
+            color: white;
+            background: linear-gradient(black, blue, lightblue);
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: monospace;
+            height: 72vh;
+
+        }
+        @keyframes colorChange {
+            0%{
+               color: blue;
+            }
+            50%{
+                color: black;
+            }
+            100%{
+               color: aliceblue;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 140px;
+            font-size: 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, color 0.3s ease;
+            animation: colorChange 3s infinite;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .anchor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .one {
+            border: 1px solid black;
+            border-radius: 25px;
+            background-color: aliceblue;
+            /* width: 250px;
+            height: 35px; */
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .one a {
+            text-decoration: none;
+            align-items: center;
+            color: black;
+            font-size: large;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .one:hover{
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Javascript assignment</h1>
+    <h2>From Chapter#31 to 38</h2>
+    <div class="anchor">
+        <div class="one"> <a href="31-34.html">Assignment#31-34</a></div>
+        <div class="one"><a href="35-38.html">Assignment#35-38</a></div>
+    </div>
+</body>
+
+</html>

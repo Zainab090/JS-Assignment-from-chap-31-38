@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Write a function that displays current date & time in your
+        // browser.
+        document.write("<h1>Question#1</h1>")
+
+        function displayDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+        document.write(dateTimeString);
+    }
+    displayDateTime();
+
+    document.write("<hr>");
+
+//     2. Write a function that takes first & last name and then it
+// greets the user using his full name.
+document.write("<h1>Question#2</h1>")
+
+function greetUser(firstName, lastName) {
+        const fullName = `${firstName} ${lastName}`;
+        const greetingMessage = `Hello, ${fullName}!`;
+        document.write(greetingMessage);
+    }
+    greetUser('John', 'Doe');
+
+    document.write("<hr>");
+
+//     3. Write a function that adds two numbers (input by user)
+// and returns the sum of two numbers.
+document.write("<h1>Question#3</h1>");
+
+let digit1=parseInt(prompt("Add first digit:"));
+let a=digit1;
+let digit2=parseInt(prompt("Add second digit:"));
+let b=digit2;
+function add() {
+  let result=a+b;
+  document.write(result);
+}
+add();
+
+document.write("<hr>");
+
+// 4. Calculator:
+// Write a function that takes three arguments num1, num2
+// & operator & compute the desired operation. Return and
+// show the desired result in your browser.
+document.write("<h1>Question#4</h1>");
+
+let num1 = parseInt(prompt("Enter the first number:"));
+let num2 = parseInt(prompt("Enter the second number:"));
+let operator = prompt("Enter operator (+, -, *, /):");
+
+function calculator(num1, num2, operator) {
+    let result;
+    switch (operator) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            if (num2 !== 0) {
+                result = num1 / num2;
+            } else {
+                return "Error: Division by zero is not allowed.";
+            }
+            break;
+        default:
+            return "Error: Invalid operator. Please use +, -, *, or /.";
+    }
+    return `The result of ${num1} ${operator} ${num2} is: ${result}`;
+}
+let output = calculator(num1, num2, operator);
+document.write(output);
+
+document.write("<hr>");
+
+// 5. Write a function that squares its argument.
+document.write("<h1>Question#5</h1>");
+
+let num=parseInt(prompt("Enter a digit to make its square:"));
+function square() {
+    return num * num;
+}
+let result5 = square();
+document.write(result5);
+
+document.write("<hr>");
+
+// 6. Write a function that computes factorial of a number.
+document.write("<h1>Question#6</h1>");
+
+function factorialIterative(n) {
+    if (n < 0) {
+        return "Error: Factorial is not defined for negative numbers.";
+    }
+    
+    let result = 1;
+    for (let i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+let number = parseInt(prompt("Enter a number to compute its factorial:"));
+let result = factorialIterative(number);
+document.write("The factorial of " + number + " is: " + result);
+
+ document.write("<hr>");
+
+//  7. Write a function that take start and end number as inputs
+//  & display counting in your browser.
+document.write("<h1>Question#7</h1>");
+
+
+function displayCounting(start, end) {
+    if (start > end) {
+        document.write("Error: Start number should be less than or equal to the end number.");
+        return;
+    }
+        let countingSequence = [];
+        for (let i = start; i <= end; i++) {
+        countingSequence.push(i);
+    }
+        document.write("Counting from " + start + " to " + end + ": <br>");
+    document.write(countingSequence.join(", "));
+}
+let startNumber = parseInt(prompt("Enter the start number:"));
+let endNumber = parseInt(prompt("Enter the end number:"));
+displayCounting(startNumber, endNumber);
+
+document.write("<hr>");
+
+// 8. Write a nested function that computes hypotenuse of a
+// right angle triangle.
+// Hypotenuse2 = Base2 + Perpendicular2
+// Take base and perpendicular as inputs.
+// Outer function : calculateHypotenuse()
+// Inner function: calculateSquare()
+document.write("<h1>Question#8</h1>");
+
+function calculateHypotenuse(base, perpendicular) {
+    function calculateSquare(number) {
+        return number * number;
+    }
+
+    let baseSquare = calculateSquare(base);
+    let perpendicularSquare = calculateSquare(perpendicular);
+
+    let hypotenuseSquare = baseSquare + perpendicularSquare;
+    let hypotenuse = Math.sqrt(hypotenuseSquare);
+
+    document.write("Base: " + base + "<br>");
+    document.write("Perpendicular: " + perpendicular + "<br>");
+    document.write("Hypotenuse: " + hypotenuse);
+}
+
+let base = parseFloat(prompt("Enter the base of the triangle:"));
+let perpendicular = parseFloat(prompt("Enter the perpendicular of the triangle:"));
+
+calculateHypotenuse(base, perpendicular);
+
+document.write("<hr>");
+
+// 9. Write a function that calculates the area of a rectangle.
+// A = width * height
+// Pass width and height in following manner:
+
+// i. Arguments as value
+// ii. Arguments as variables
+document.write("<h1>Question#9</h1>");
+
+function calculateArea(width, height) {
+            return width * height;
+        }
+
+        let areaWithValues = calculateArea(10, 5);
+        document.write("Area with values (10, 5): " + areaWithValues + "<br>");
+
+        let width = 7;
+        let height = 3;
+        let areaWithVariables = calculateArea(width, height);
+        document.write("Area with variables (width = 7, height = 3): " + areaWithVariables);
+
+        document.write("<hr>");
+
+//         10. Write a JavaScript function that checks whether a passed
+// string is palindrome or not?
+// A palindrome is word, phrase, or sequence that reads the same backward as
+// forward, e.g., madam.
+document.write("<h1>Question#10</h1>");
+
+function isPalindrome(str) {
+    const normalizedStr = str.toLowerCase().replace(/[^a-z0-9]/gi, '');
+
+    const reversedStr = normalizedStr.split('').reverse().join('');
+
+    return normalizedStr === reversedStr;
+}
+
+let testString1 = "Madam";
+let testString2 = "Hello";
+
+document.write(`"${testString1}" is a palindrome: ${isPalindrome(testString1)}`);
+document.write(`"${testString2}" is a palindrome: ${isPalindrome(testString2)}`);
+
+document.write("<hr>");
+
+// 11. Write a JavaScript function that accepts a string as a
+// parameter and converts the first letter of each word of the
+// string in upper case.
+// EXAMPLE STRING : 'the quick brown fox'
+// EXPECTED OUTPUT : 'The Quick Brown Fox'
+document.write("<h1>Question#11</h1>");
+
+function capitalizeFirstLetterOfEachWord(str) {
+    let words = str.split(' ');
+
+    let capitalizedWords = words.map(word => {
+        if (word.length > 0) {
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+        return word;
+    });
+
+    return capitalizedWords.join(' ');
+}
+
+let exampleString = 'the quick brown fox';
+let result2 = capitalizeFirstLetterOfEachWord(exampleString);
+document.write(result2); 
+
+document.write("<hr>");
+
+// 12. Write a JavaScript function that accepts a string as a
+// parameter and find the longest word within the string.
+// EXAMPLE STRING : 'Web Development Tutorial'
+// EXPECTED OUTPUT : 'Development'
+document.write("<h1>Question#12</h1>");
+
+function findLongestWord(str) {
+    let words = str.split(' ');
+
+    let longestWord = '';
+
+    for (let word of words) {
+        if (word.length > longestWord.length) {
+            longestWord = word;
+        }
+    }
+
+    return longestWord;
+}
+let exampleString2 = 'Web Development Tutorial';
+let result3 = findLongestWord(exampleString2);
+document.write(result3); 
+
+document.write("<hr>");
+
+// 13. Write a JavaScript function that accepts two arguments, a
+// string and a letter and the function will count the number of
+// occurrences of the specified letter within the string.
+// Sample arguments : 'JSResourceS.com', 'o'
+document.write("<h1>Question#13</h1>");
+
+function countLetterOccurrences(str1, letter) {
+    let count = 0;
+    for (let char of str1) {
+        if (char === letter) {
+            count++;
+        }
+    }
+    return count;
+}
+let sampleString = 'JSResourceS.com';
+let letterToCount = 'o';
+let result4 = countLetterOccurrences(sampleString, letterToCount);
+document.write(`The letter '${letterToCount}' appears ${result4} times in the string.`);
+
+document.write("<hr>");
+
+// 14. The Geometrizer
+// Create 2 functions that calculate properties of a circle, using
+// the definitions here.
+// Create a function called calcCircumference:
+// • Pass the radius to the function.
+// • Calculate the circumference based on the radius, and output
+// "The circumference is NN".
+// Create a function called calcArea:
+// • Pass the radius to the function.
+// • Calculate the area based on the radius, and output "The area
+// is NN".
+// Circumference of circle = 2πr
+// Area of circle = πr2
+// Function to calculate the circumference of a circle
+document.write("<h1>Question#14</h1>");
+
+function calcCircumference(radius) {
+    if (radius <= 0) {
+      document.write("Invalid radius. Please enter a positive number.");
+        return;
+    }
+    
+    let circumference = 2 * Math.PI * radius;
+    
+    document.write("The circumference is " + circumference.toFixed(2));
+}
+
+function calcArea(radius) {
+    if (radius <= 0) {
+        document.write("Invalid radius. Please enter a positive number.");
+        return;
+    }
+    
+    let area = Math.PI * radius * radius;
+    
+    document.write("The area is " + area.toFixed(2));
+}
+
+let radius = parseFloat(prompt("Enter the radius of the circle:"));
+
+calcCircumference(radius);
+calcArea(radius);
+
+document.write("<hr>");
+
+    </script>
+</body>
+</html>

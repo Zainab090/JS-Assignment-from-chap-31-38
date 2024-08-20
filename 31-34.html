@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. Write a program that displays current date and time in
+        // your browser.
+        document.write("<h1>QUESTION#1</h1>");
+
+        const current = Date();
+        document.write('Current Date is ' + current);
+
+        document.write("<hr>")
+
+        //         2. Write a program that alerts the current month in words.
+        // For example December.
+        document.write("<h1>QUESTION#2</h1>");
+
+        const currentMonth = new Date();
+        let monthNames = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        let currentMonthIs = monthNames[currentMonth.getMonth()]
+        document.write('Current Month: ' + currentMonthIs);
+
+        document.write("<hr>")
+
+        // 3. Write a program that alerts the first 3 letters of the current
+        // day, for example if today is Sunday then alert will show
+        // Sun.
+        document.write("<h1>QUESTION#3</h1>");
+
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const today = new Date().getDay();
+        document.write(days[today]);
+
+        document.write("<hr>")
+
+        // 4. Write a program that displays a message “It’s Fun day” if
+        // its Saturday or Sunday today
+        document.write("<h1>QUESTION#4</h1>");
+        let day = new Date();
+        let anotherValue = day.getDay();
+        switch (anotherValue) {
+            case 0:
+                document.write("It's Funday!")
+                break;
+            case 6:
+                document.write("It's Funday")
+            default:
+                document.write("It is not funday!")
+                break;
+        }
+
+        document.write("<hr>")
+
+        // 5. Write a program that shows the message “First fifteen 
+        // days of the month” if the date is less than 16th of the month 
+        // else shows “Last days of the month”.
+        document.write("<h1>QUESTION#5</h1>");
+
+        let dateVariable = new Date();
+        let anotherVariable = dateVariable.getDate();
+        if (anotherVariable <= 15) {
+            document.write("First fifteen days of the month");
+        }
+        else {
+            document.write("last days of the months");
+        }
+
+        document.write("<hr>")
+
+        // 6. Write a program that determines the minutes since 
+        // midnight, Jan. 1, 1970 and assigns it to a variable that 
+        // hasn't been declared beforehand. Use any variable you like 
+        // to represent the Date object.
+        document.write("<h1>QUESTION#6</h1>");
+
+        let currentDate = new Date();
+        document.write("CURRENT DATE:" + currentDate + "<br>");
+        let millisecondsSince1970 = currentDate.getTime();
+        document.write("Milliseconds:" + millisecondsSince1970 + "<br>")
+        let minutesSince1970 = Math.floor(millisecondsSince1970 / (1000 * 60));
+        document.write("Minutes since midnight, Jan. 1, 1970: " + minutesSince1970);
+
+        document.write("<hr>")
+
+        // 7. Write a program that tests whether it's before noon and
+        // alert “Its AM” else “its PM”.
+        document.write("<h1>QUESTION#7</h1>");
+
+        let dateContainer = new Date();
+        let hours = dateContainer.getHours();
+        let period = hours >= 12 ? 'PM' : 'AM';
+        let modifedContainer = hours % 12 || 12; // Converts '0' (midnight) or '12' (noon) to 12-hour format
+        document.write(modifedContainer + ' ' + period);
+
+        document.write("<hr>")
+
+        // 8. Write a program that creates a Date object for the last day
+        // of the last month of 2020 and assigns it to variable named
+        // laterDate.
+        document.write("<h1>QUESTION#8</h1>");
+
+        let lastDate=new Date(2020,11,31);
+        let simplify=lastDate.toLocaleString();
+        document.write("for the last day of the last month of 2020:  "+simplify);
+
+        document.write("<hr>")
+
+//         9. Create a date object of the starting date of this Ramadan
+// and alert the number of days past since 1st Ramadan?
+// Note: 1st Ramadan was on June 18, 2015
+document.write("<h1>QUESTION#9</h1>");
+
+var todayIs = new Date();
+var msToday = todayIs.getTime();
+var thisRamadan=new Date("June 18,2015");
+var msRamadan=thisRamadan.getTime();
+var Diff=msToday-msRamadan;
+var timeDays=Math.floor(Diff/(1000*60*60*24));
+document.write(timeDays+" days have passed since 1st Ramadan 2015");
+
+document.write("<hr>");
+
+// 10. Write a program that displays in your browser the 
+// seconds that elapsed between the reference date and the 
+// beginning of 2015.
+document.write("<h1>QUESTION#10</h1>");
+
+let beginningOf2015=new Date("january 1,2015");
+let inMs=beginningOf2015.getTime();
+let fromDate=new Date();
+let DateInms=fromDate.getTime();
+let diffBtwTwo=DateInms-inMs;
+let calculate=Math.floor(diffBtwTwo/(1000*60));
+document.write(calculate);
+
+document.write("<hr>");
+
+// 11. Create a Date object for the current date and time. 
+// Extract the hours, reset the date object an hour ahead and 
+// finally display the date object in your browser
+document.write("<h1>QUESTION#11</h1>");
+
+let currentDateIs = new Date();
+let currentHour = currentDateIs.getHours();
+currentDateIs.setHours(currentHour + 1);
+document.write(currentDateIs.toLocaleTimeString());
+
+document.write("<hr>");
+
+// 12. Write a program that creates a date object and show the
+// date in an alert box that is reset to 100 years back?
+document.write("<h1>QUESTION#12</h1>");
+
+let dateObject=new Date();
+dateObject.setFullYear(dateObject.getFullYear()-100);
+document.write(dateObject);
+
+document.write("<hr>")
+
+// 13. Write a program to ask the user about his age. Calculate
+// and show his birth year in your browser.
+document.write("<h1>QUESTION#13</h1>");
+
+let age = prompt("Please enter your age:");
+let birthYear = new Date().getFullYear() - parseInt(age);
+document.write("You were born in the year: " + birthYear);
+
+document.write("<hr>")
+
+// 14. Write a program to generate your K-Electric bill in your
+// browser. All the amounts should be rounded off to 2
+// decimal places. Display the following fields:
+// a. Customer Name
+// b. Current Month
+// c. Number of units
+// d. Charges per unit
+// e. Net Amount Payable (within Due Date)
+// f. Late Payment Surcharge
+// g. Gross Amount Payable (after Due Date)
+// Where,
+
+// Net Amount Payable (within Due Date) = Number of units * Charges per unit
+// & Gross Amount Payable (after Due Date) = Net Amount + Late Payment Surcharge
+document.write("<h1>QUESTION#14</h1>");
+
+let customerName = "John Doe";
+        let currentMonthAre = new Date().toLocaleString('default', { month: 'long', year: 'numeric' });
+
+        let numberOfUnits = 350;
+        let chargesPerUnit = 18.75;
+        let latePaymentSurcharge = 150.00;
+
+        let netAmountPayable = (numberOfUnits * chargesPerUnit).toFixed(2);
+        let grossAmountPayable = (parseFloat(netAmountPayable) + latePaymentSurcharge).toFixed(2);
+
+        document.write("<h1>K-Electric Bill</h1>");
+        document.write("<p><strong>Customer Name:</strong> " + customerName + "</p>");
+        document.write("<p><strong>Current Month:</strong> " + currentMonthAre + "</p>");
+        document.write("<p><strong>Number of Units:</strong> " + numberOfUnits + "</p>");
+        document.write("<p><strong>Charges per Unit:</strong> " + chargesPerUnit.toFixed(2) + "</p>");
+        document.write("<p><strong>Net Amount Payable (within Due Date):</strong> " + netAmountPayable + "</p>");
+        document.write("<p><strong>Late Payment Surcharge:</strong> " + latePaymentSurcharge.toFixed(2) + "</p>");
+        document.write("<p><strong>Gross Amount Payable (after Due Date):</strong> " + grossAmountPayable + "</p>");
+        
+        document.write("<hr>")
+
+
+        </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
